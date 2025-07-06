@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_events.h>
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_video.h>
 
@@ -14,6 +15,8 @@ SDL_Window * createWindow(const char * title, int windowWidth, int windowHeight)
 
 SDL_Renderer * createRenderer(SDL_Window * targetWindow);
 
+
+// main function
 int main(int argc, char  *argv[])
 {
 
@@ -27,6 +30,10 @@ int main(int argc, char  *argv[])
 
      int red = 0, green = 0, blue = 0, alpha = 0;
 
+     int inputCode;
+
+     SDL_Event event;
+
      while (running)
      {
 
@@ -34,8 +41,9 @@ int main(int argc, char  *argv[])
 
           SDL_SetRenderDrawColor(mainRenderer, red, green, blue, alpha);
           SDL_RenderPresent(mainRenderer);
-          
+
      }
+
 
      SDL_DestroyRenderer(mainRenderer);
      SDL_DestroyWindow(mainWindow);
@@ -71,3 +79,4 @@ SDL_Renderer * createRenderer(SDL_Window * targetWindow)
      return renderer;
 
 }
+
