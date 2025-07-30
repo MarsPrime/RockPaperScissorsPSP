@@ -2,10 +2,14 @@ cmake_minimum_required(VERSION 3.11)
 
 project(rps)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} scripts/main.cpp 
+     scripts/window.cpp
+     scripts/menu.cpp
+)
 
 include(FindPkgConfig)
 pkg_search_module(SDL2 REQUIRED sdl2)
+
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
 
@@ -15,6 +19,8 @@ target_include_directories(
 	${SDL2_INCLUDE_DIRS}
 	${SDL2_MIXER_INCLUDE_DIRS}
     ${SDL2_TTF_INCLUDE_DIRS}
+    ./scripts/
+    ./headers/
 	)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
