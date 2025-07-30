@@ -1,4 +1,5 @@
 #include "../headers/menu.h"
+#include <vector>
 
 
 Menu::Menu(const char * title, int x, int y, int width, int height, int type)
@@ -13,6 +14,7 @@ Menu::Menu(const char * title, int x, int y, int width, int height, int type)
      menuRectangle = {menuPositionX, menuPositionY, menuWidth, menuHeight};
 
      selectMenuColorFromType();
+
 }
 
 SDL_Rect * Menu::getMenuRect()
@@ -48,4 +50,14 @@ void Menu::selectMenuColorFromType()
 int * Menu::getMenuBackground()
 {
      return this->menuBackground;
+}
+
+void Menu::addMenuButton(Button * newButton)
+{
+     this->menuButtons.push_back(newButton);
+}
+
+vector<Button *>  Menu::getMenuButtons()
+{
+     return this->menuButtons;
 }

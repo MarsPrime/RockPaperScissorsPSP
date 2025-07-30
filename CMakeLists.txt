@@ -5,6 +5,7 @@ project(rps)
 add_executable(${PROJECT_NAME} scripts/main.cpp 
      scripts/window.cpp
      scripts/menu.cpp
+     scripts/button.cpp
 )
 
 include(FindPkgConfig)

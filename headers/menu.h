@@ -2,6 +2,8 @@
 #define Menu_h
 
 #include "globals.h"
+#include "button.h"
+
 
 class Menu
 {
@@ -15,9 +17,11 @@ class Menu
           int menuWidth = 0;
           int menuHeight= 0;
 
-          SDL_Rect menuRectangle;
+          SDL_Rect menuRectangle = {};
 
           int menuBackground [4];
+
+          vector<Button * > menuButtons;
 
           void selectMenuColorFromType();
      
@@ -26,8 +30,11 @@ class Menu
           SDL_Rect * getMenuRect();
 
           int* getMenuBackground();
-};
 
+          void addMenuButton(Button * newButton);
+          
+          vector<Button * > getMenuButtons();
+};
 
 
 #endif 
