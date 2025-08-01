@@ -21,6 +21,7 @@ class Button
           Button(const char * title, int x, int y, int width, int height);
           int * getButtonColor();
           const char * getButtonTitle();
+          SDL_Rect * getButtonRect();
 };
 
 #endif

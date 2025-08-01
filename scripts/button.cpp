@@ -25,3 +25,7 @@ const char * Button::getButtonTitle()
      return this->buttonTitle;
 }
 
+SDL_Rect * Button::getButtonRect()
+{
+     return &this->buttonShape;
+}

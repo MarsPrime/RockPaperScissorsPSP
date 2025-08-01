@@ -8,14 +8,16 @@
 class Menu
 {
      private:
+          // variables
           const char * menuTitle = "";
+
           int menuType = 0;
 
-          int menuPositionX = 0;
-          int menuPositionY = 0;
+          // menu postion on screen
+          int  menuPosition [2] = {0, 0};
 
-          int menuWidth = 0;
-          int menuHeight= 0;
+          // menu size
+          int menuSize [2] = {0, 0};
 
           SDL_Rect menuRectangle = {};
 
@@ -23,17 +25,31 @@ class Menu
 
           vector<Button * > menuButtons;
 
+          SDL_Renderer * menuRenderer;
+          // methods
+
           void selectMenuColorFromType();
      
      public:
+          // methods
+
           Menu(const char * title, int x, int y, int width, int height, int type); // constructor
+
+          int * getMenuSize();
+          int * getMenuPosition();
+
           SDL_Rect * getMenuRect();
+          int * getMenuBackground();
+          void setMenuRenderer(SDL_Renderer * renderer);
+          SDL_Renderer * getMenuRenderer();
 
-          int* getMenuBackground();
-
-          void addMenuButton(Button * newButton);
-          
+          // functions for menu buttons
+          void addMenuButton(const char * title);
           vector<Button * > getMenuButtons();
+          int getMenuButtonsQuantity();
+
+          // render menu
+          void renderMenu();
 };
 
 
