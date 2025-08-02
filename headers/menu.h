@@ -26,21 +26,26 @@ class Menu
           vector<Button * > menuButtons;
 
           SDL_Renderer * menuRenderer;
-          // methods
 
+          // methods
           void selectMenuColorFromType();
      
      public:
           // methods
 
-          Menu(const char * title, int x, int y, int width, int height, int type); // constructor
+          Menu(const char * title, 
+                    int x, 
+                    int y, 
+                    int width, 
+                    int height, 
+                    int type, 
+                    SDL_Renderer * renderer); // constructor
 
           int * getMenuSize();
           int * getMenuPosition();
 
           SDL_Rect * getMenuRect();
           int * getMenuBackground();
-          void setMenuRenderer(SDL_Renderer * renderer);
           SDL_Renderer * getMenuRenderer();
 
           // functions for menu buttons

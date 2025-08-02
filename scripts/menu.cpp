@@ -1,18 +1,19 @@
 #include "../headers/menu.h"
-#include <SDL2/SDL_render.h>
+#include <SDL2/SDL_rect.h>
 #include <vector>
 
 
-Menu::Menu(const char * title, int x, int y, int width, int height, int type)
+Menu::Menu(const char * title, int x, int y, int width, int height, int type, SDL_Renderer * renderer)
 {
-     menuTitle = title;
-     menuPosition[0] = x;
-     menuPosition[1] = y;
-     menuSize[0] = width;
-     menuSize[1] = height;
-     menuType = type;
+     this->menuTitle = title;
+     this->menuRenderer = renderer;
+     this->menuPosition[0] = x;
+     this->menuPosition[1] = y;
+     this->menuSize[0] = width;
+     this->menuSize[1] = height;
+     this->menuType = type;
 
-     menuRectangle = {menuPosition[0], menuPosition[1], menuSize[0], menuSize[1]};
+     this->menuRectangle = {menuPosition[0], menuPosition[1], menuSize[0], menuSize[1]};
 
      selectMenuColorFromType();
 
@@ -78,6 +79,10 @@ void Menu::addMenuButton(const char * title)
                );
 
      this->menuButtons.push_back(newButton);
+
+
+
+     
 }
 
 vector<Button *>  Menu::getMenuButtons()
@@ -88,11 +93,6 @@ vector<Button *>  Menu::getMenuButtons()
 int Menu::getMenuButtonsQuantity()
 {
      return this->menuButtons.size();
-}
-
-void Menu::setMenuRenderer(SDL_Renderer * renderer)
-{
-     this->menuRenderer = renderer;
 }
 
 SDL_Renderer * Menu::getMenuRenderer()
@@ -115,6 +115,7 @@ void Menu::renderMenu()
      for (int i = 0; i < this->getMenuButtonsQuantity(); i ++)
      {
           Button * tempButton = this->getMenuButtons()[i];
+
           SDL_SetRenderDrawColor(this->getMenuRenderer(),
                     tempButton->getButtonColor()[0],
                     tempButton->getButtonColor()[1],
@@ -123,6 +124,7 @@ void Menu::renderMenu()
                     );
 
           SDL_RenderFillRect(this->getMenuRenderer(), tempButton->getButtonRect());
+
      }
 
 }

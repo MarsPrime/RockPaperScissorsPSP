@@ -13,6 +13,7 @@ Button::Button(const char * title, int x, int y, int width, int height)
                           buttonPositionY,
                           buttonWidth,
                           buttonHeight};
+
 }
 
 int * Button::getButtonColor()

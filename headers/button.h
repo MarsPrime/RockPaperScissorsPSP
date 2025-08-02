@@ -7,6 +7,11 @@ class Button
 {
      private:
           const char * buttonTitle = "";
+
+          TTF_Font * buttonFont = TTF_OpenFont("../fonts/Roboto.ttf", 20);
+          SDL_Surface * buttonSurface = NULL;
+          SDL_Texture * buttonTexture = NULL;
+
           int buttonWidth = 0;
           int buttonHeight = 0;
 

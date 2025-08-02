@@ -8,6 +8,7 @@ class Window
      private:
           int windowWidth;
           int windowHeight;
+
           const char * windowTitle;
           SDL_Window * window;
           SDL_Renderer * renderer;
@@ -24,7 +25,6 @@ class Window
           SDL_Window * getWindow();
 
           SDL_Renderer * getRenderer();
-
 };
 
 #endif

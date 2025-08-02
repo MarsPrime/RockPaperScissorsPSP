@@ -22,13 +22,11 @@ int main(int argc, char  *argv[])
 
      SDL_Event event;
 
-     Menu * mainMenu = new Menu("menu", 100, 100, 200, 100, 2);
+     Menu * mainMenu = new Menu("menu", 100, 100, 200, 100, 2, mainWindow->getRenderer());
 
      mainMenu->addMenuButton("test");
      mainMenu->addMenuButton("test2");
      mainMenu->addMenuButton("test3");
-
-     mainMenu->setMenuRenderer(mainWindow->getRenderer());
 
      while (running)
      {
@@ -71,7 +69,6 @@ int main(int argc, char  *argv[])
 
 
           SDL_RenderClear(mainWindow->getRenderer());
-
           mainMenu->renderMenu();
           SDL_SetRenderDrawColor(mainWindow->getRenderer(), 0, 0, 0, 0);
           SDL_RenderPresent(mainWindow->getRenderer());
